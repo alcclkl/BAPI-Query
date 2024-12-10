@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+nav {
+    background-color: #a1a1a1;
+    overflow: hidden;
+    height: 300px;
+
+
+}
+#cardDiv
+
+#banner {
+        font-family: "Lovers Quarrel", cursive ;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 10rem;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    
+}
+
+#cards {
+    border: solid 1px black;
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+#cardsContainer {
+    display: flex;
+    justify-content: center;
+    background: -moz-linear-gradient(270deg, hsla(139, 70%, 75%, 1) 0%, hsla(63, 90%, 76%, 1) 100%);
+}
+
+#toolbar {
+    height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+
+}
+
+#toolbarContainer {
+    height: 100px;
+    
+}
+#choice {
+    margin-right: 10px;
+    display: flex;
+}
+
+
+#keyList {display: none;}

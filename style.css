@@ -1,57 +1,104 @@
 * {
     margin: 0;
     padding: 0;
-}
-nav {
-    background-color: #a1a1a1;
-    overflow: hidden;
-    height: 300px;
-
 
 }
-#cardDiv
-banner {
-    
-    font-family: "Lovers Quarrel", cursive;
-    font-weight: 100;
-    font-style: normal;
-    font-size: 10rem;
-    height: 300px;
+/*  HEADER  */
+header{
+    height: 250px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
+    
+    background: linear-gradient(225deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+    
+
+}
+
+#headImg {
+    width: 200px;
+}
+#headText {
+    font-size: 80px;
+    font-family: "Jersey 20", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     
 }
 
-#cards {
-    border: solid 1px black;
-    display: flex;
-    height: 100vh;
-    flex-wrap: wrap;
-    width: 80%;
-}
 
-#cardsContainer {
-    display: flex;
-    justify-content: center;
-    background: -moz-linear-gradient(270deg, hsla(139, 70%, 75%, 1) 0%, hsla(63, 90%, 76%, 1) 100%);
-}
+/*TOOLBAR*/ 
 
-#toolbar {
+/* #toolbarSection {
     height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-
-}
-
-#toolbarContainer {
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
     
 }
-#choice {
-    margin-right: 10px;
+
+#tools {
+    
+    width: 70%;
+    height: 100%;
+    
+} */
+
+#resultArea {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
+
+#rawCodeArea {
+    
+    width: 50%;
+    justify-content: center;
+    height: auto;
+}
+
+
+
+#preCode {
+    display: none;
+    max-height: 800px;
+    height: 800px;
+}
+
+#creatingChoice {
+    display: none;
+}
+
+
+
+
+#errorModal {
+    display: none; /* Başlangıçta gizli */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  #errorModal img {
+    width: 100%;
+    height: auto;
+  }
+
+  #errorModal button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background: red;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
