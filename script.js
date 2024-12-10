@@ -11,7 +11,7 @@ const createButton = document.getElementById("createButton");
 const createOption = document.getElementById("createOption");
 const creatingChoice = document.getElementById("createChoice");
 const cardSection = document.getElementById("cardSection");
-const innerKeyList = document.getElementById("innerKeyList");
+const innerKeylist = document.getElementById("innerKeylist");
 let fetchedData = null;
 let keyGlobal = null;
 let selectedKeyGlobal = null;
@@ -72,8 +72,6 @@ keyList.addEventListener("change", async (correspondingValue) => {
   for (let i = 0; i < keys.length; i++) {
     if (keys[i] === selectedKey) {
       const correspondingValue = values[i];
-      console.log(`Seçilen Key: ${selectedKey}`);
-      console.log(`Karşılık Gelen Değer: ${correspondingValue}`);
 
       try {
         const response = await fetch(correspondingValue);
@@ -93,50 +91,37 @@ keyList.addEventListener("change", async (correspondingValue) => {
   try {
     const response = await fetch(correspondingValueGlobal);
     const data = await response.json();
+
+    /*  */
+    keys1 = Object.keys(data);
+
+    const innerArrayKeys = keys1.map((key) => {
+      capitalizedKey = key.toUpperCase();
+      return `<option value=${key}>${capitalizedKey}</option>`;
+    });
+    innerKeylist.innerHTML = innerArrayKeys.join("");
   } catch {
     errorMessageGif();
   }
-  keys1 = Object.keys(data);
-  const innerKeyList = keys1.map((key) => {
-    console.log(key);
-    const capitalizedInnerKey = key.toUpperCase();
-    console.log(capitalizedInnerKey);
-    return `<option value="${key}">${capitalizedInnerKey}</option>`;
-  });
 });
 
 createButton.addEventListener("click", async () => {
-  // Burada correspondingValueGlobal bir URL veya API endpoint olmalı.
+  preCode.style.height = "58px";
   console.log(correspondingValueGlobal);
-  try {
-    const response = await fetch(correspondingValueGlobal); // API'yi çağır
-    console.log(response);
-    const data = await response.json();
-    console.log(data); // JSON olarak çözümle
-    const createCard = data.map((value) => {
-      cardSection.innerHTML = `<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    Featured
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-</div>`;
-    });
-  } catch (error) {
-    errorMessageGif();
+  const response = await fetch(`${correspondingValueGlobal}/result/`);
+  data = await response.json();
+  for (const key of Object.keys(data)) {
+    console.log(data);
   }
 });
 
 /* Error Controller */
 function errorMessageGif() {
   const modal = document.getElementById("errorModal");
-  modal.style.display = "block"; // Modal'ı görünür yap
+  modal.style.display = "block";
 }
 
 function closeErrorModal() {
   const modal = document.getElementById("errorModal");
-  modal.style.display = "none"; // Modal'ı gizle
+  modal.style.display = "none";
 }
